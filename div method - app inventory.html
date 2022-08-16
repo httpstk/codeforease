@@ -1,0 +1,47 @@
+
+	<html>
+		<head></head>
+		<body>
+		<div id='items' class='items'></div>
+		<!-- 
+		<div><a href="javascript:void(0)" class="btn" onclick="loadData()">Load more</a></div>
+		 -->
+		 <button onclick="returnProuctBox()" > see</button>
+		<div id='outerProductdiv'>
+		  <div class="item-image">
+		  <img id="img" src="https://www.jaipurbazar.in/wp-content/uploads/2022/04/Premium-Pure-Cotton-Fabrics-33-600x800.jpeg">
+		  </div>
+		  <div class="item-quantity">{{quantity}}</div>
+		  <div>
+			<button>--</button>
+			<input />
+			<button>++</button>
+
+		  </div>
+		</div>
+
+
+
+
+		<script>
+			  function returnProuctBox(){
+
+console.log("entered");
+
+	// dataset.forEach(item => {
+		// let div = document.createElement('div');
+		let div = document.getElementById('items');
+		console.log("entered");
+ 
+		let image = document.getElementById('img');
+		image.src = "https://www.thatsoftwaredude.com/images/collections/e2bf959c-914b-45c0-8f16-b869e923f674.png";
+		console.log("entered");
+
+		div.appendChild( image);
+	//   console.log(oneProduct.childNodes[0] )
+	console.log("entered");
+
+}
+</script>
+		</body>
+	</html>

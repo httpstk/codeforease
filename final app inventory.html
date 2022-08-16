@@ -1,0 +1,132 @@
+
+<html>
+	<head>
+			
+
+	</head>
+	<body>
+		<div id='items' class='items'></div>
+	    <!-- <button onclick="returnProuctBox()" >  test it </button>  -->
+
+		<div><a href="javascript:void(0)" class="btn" onclick="loadData()">Load more</a></div>
+	
+	<template id='template'>
+	  <div class="item-image">
+	  	<img src="https://www.thatsoftwaredude.com/images/collections/e2bf959c-914b-45c0-8f16-b869e923f674.png">
+	  </div>
+	  <div class="item-title">{{title}}</div>
+	</template>
+
+
+	<script >
+
+let dataset = [
+{
+    quantity: '3',
+    image: "https://www.jaipurbazar.in/wp-content/uploads/2022/04/Premium-Pure-Cotton-Fabrics-33-600x800.jpeg"
+},
+{
+	quantity: '5',
+    image: "https://www.jaipurbazar.in/wp-content/uploads/2022/04/Premium-Pure-Cotton-Fabrics-34-600x800.jpeg"
+},
+{
+	quantity: '1',
+    image: "https://www.jaipurbazar.in/wp-content/uploads/2022/04/Premium-Pure-Cotton-Fabrics-32-600x800.jpeg"
+},
+{
+	quantity: '33',
+    image: "https://www.jaipurbazar.in/wp-content/uploads/2022/04/Premium-Pure-Cotton-Fabrics-37-600x800.jpeg"
+}
+];
+
+	function loadData(){
+
+		dataset.forEach(function(item){
+     	returnProuctBox(item);
+
+		});
+}
+
+   function returnProuctBox(item){
+
+	console.log("entered123");
+	console.log(item);
+
+
+			let div = document.createElement('div');
+			div.className = 'product-outerbox';
+       
+				let image = document.createElement('img');
+				// image.src = "https://www.jaipurbazar.in/wp-content/uploads/2022/04/Premium-Pure-Cotton-Fabrics-33-600x800.jpeg";
+				image.src = item.image;
+
+				let quantity = document.createTextNode(item.quantity);
+				let decreaseQuantityButtn = document.createElement('button');
+					decreaseQuantityButtn.innerText = "-";
+					decreaseQuantityButtn.onclick = function(){console.log("decreaseQuantityButtn clicked")};
+               
+				let increaseQuantityButton = document.createElement('button');
+					increaseQuantityButton.innerText = "+";
+					increaseQuantityButton.onclick = function(){console.log("increaseQuantityButton clicked")};
+               	
+				let quantityEditBox = document.createElement('input');
+
+
+			// console.log("entered2");
+			let productDiv = document.createElement('div');
+				productDiv.className = 'single-productDiv';
+
+				productDiv.appendChild(image);
+				productDiv.appendChild(quantity);
+				productDiv.appendChild(decreaseQuantityButtn);
+				productDiv.appendChild(quantityEditBox);
+				productDiv.appendChild(increaseQuantityButton);			
+			
+			document.getElementById('items').appendChild(productDiv);
+			// console.log("entered3");
+
+
+		// });
+   }
+	</script>
+
+
+<style>
+	.items .item{
+			background:#f3f3f3;
+			padding: 20px;
+			border-radius: 10px;
+			border:solid 1px #aaa;
+			display:inline-block;
+			width: 31%;
+			margin:1%;
+		}
+
+		.items .item .item-title{
+			font-size: 20pt;
+			font-weight:bold;
+			letter-spacing: -1px;
+		}
+
+		.items .item .item-image{
+			width: 80%;
+		}
+	</style>
+	</body>
+</html>
+
+
+<!-- 
+
+Do some styling first, then proceed.
+
+Set header for category selection, in stock show only
+
+page number each time new load comes.
+
+query parameters carefully...
+
+last page -> disable "LOAD MORE"
+
+
+ -->

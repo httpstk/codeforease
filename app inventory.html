@@ -1,0 +1,79 @@
+let dataset = [
+{
+    title: 'Article 1',
+    id: 1
+},
+{
+    title: 'Article 1',
+    id: 1
+},
+{
+    title: 'Article 1',
+    id: 1
+},
+{
+    title: 'Article 1',
+    id: 1
+}
+];
+
+
+
+<template id='template'>
+	<div class='item'>
+	{{title}}
+	</div>
+	</template>
+
+
+
+	<html>
+	<head></head>
+	<body>
+	<div id='items' class='items'></div>
+	
+	<div><a href="javascript:void(0)" class="btn" onclick="loadData()">Load more</a></div>
+	
+	<template id='template'>
+	  <div class="item-image">
+	  <img src="https://www.thatsoftwaredude.com/images/collections/e2bf959c-914b-45c0-8f16-b869e923f674.png">
+	  </div>
+	  <div class="item-title">{{title}}</div>
+	</template>
+	</body>
+</html>
+
+
+function loadData(){
+	let template = document.getElementById('template');
+	dataset.forEach(function(item){
+	// create a new element with the contents of the template
+	let div = document.createElement('div');
+	div.className = 'item';
+	div.innerHTML = template.innerHTML.replace('{{title}}', item.title);
+	
+	document.getElementById('items').appendChild(div);
+	});
+}
+
+
+
+.items .item{
+    background:#f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    border:solid 1px #aaa;
+    display:inline-block;
+    width: 31%;
+    margin:1%;
+}
+
+.items .item .item-title{
+    font-size: 20pt;
+    font-weight:bold;
+    letter-spacing: -1px;
+}
+
+.items .item .item-image{
+    width: 100%;
+}
